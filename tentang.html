@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Portofolio Abi Sabban</title>
+  <style>
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      transition: background 1s ease;
+      color: white;
+      min-height: 100vh;
+      overflow: hidden;
+    } 
+
+    nav {
+      display: flex;
+      justify-content: center;
+      background-color: rgba(0, 0, 0, 0.5);
+      padding: 15px 0;
+      position: relative;
+      z-index: 2;
+    }
+
+    nav a {
+      color: white;
+      margin: 0 20px;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 18px;
+      transition: color 0.3s;
+    }
+
+    nav a:hover {
+      color: #ffd700;
+    }
+
+    .background {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 200%;
+      height: 200%;
+      background: linear-gradient(-45deg, #1e3a8a, #047857, #be123c, #9333ea);
+      background-size: 400% 400%;
+      animation: gradientMove 20s ease infinite;
+      z-index: 0;
+    }
+
+    @keyframes gradientMove {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    .container {
+      display: none;
+      padding: 60px 20px;
+      text-align: center;
+      position: relative;
+      z-index: 1;
+
+    }
+
+    .blur-box {
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border-radius: 20px;
+      box-shadow: 0 4px 30px rgba(0, 0, 0, 0.2);
+      padding: 30px;
+      max-width: 400px;
+      color: #fff;
+      text-align: center;
+    }
+
+    .card img {
+        width: 140px;
+        border-radius: 50%;
+    }
+
+    .card h2 {
+        font-size: 40px;
+        font-weight: 600;
+        margin-top: 20px;
+    }
+
+    .card p {
+        font-size: 18px ;
+        margin: 10px auto;
+        max-width: 330 px;
+    }
+
+    .card .links img {
+        width: 40px;
+        border-radius: 50%;
+        margin: 10px 5px;
+        transition: background 0.5s;
+    }
+
+    .active {
+      display: block;
+    }
+
+    h1 {
+      font-size: 36px;
+      margin-bottom: 20px;
+    }
+
+    p {
+      font-size: 18px;
+    }
+  </style>
+</head>
+<body>
+<div class="background" id="bg"></div>
+
+  <nav>
+    <a href="tentang.html" onclick="showPage('home')">Beranda</a>
+    <a href="tentang.html" onclick="showPage('about')">Tentang</a>
+  </nav>
+
+<div class="background" id="bg"></div>
+
+  <div id="about" class="container"></div>
+    <div class="blur-box"></div>
+    <img src="muka.jpg">
+    <h>Muhammad Abi Sabban</h>
+    <p>Hallo Friends, My name is Muhammad Abi Sabban </p>
+    <div class="social-links">
+      <a href="https://www.instagram.com/abiisbbn_?igsh=MXhrYnh0N3I5aWJ2NA==" target="_blank">Instagram</a> |
+      <a href="https://open.spotify.com/user/31k5icsn7wn7xyc4grkptwgt3dr4?si=IIisXoJIRoyZGArXN50Tpg">Spotify</a> |
+      <a href="https://www.tiktok.com/@abibikkkk?_t=ZS-8xiCjCwEyHA&_r=1">Tiktok</a> 
+    </div>
+  
+  </div>
+
+<div class="background" id="bg"></div>
+
+  <script>
+    const background = document.getElementById('bg');
+
+    function showPage(pageId) {
+      const pages = document.querySelectorAll('.container');
+      pages.forEach(page => page.classList.remove('active'));
+
+      const activePage = document.getElementById(pageId);
+      activePage.classList.add('active');
+
+      
+      switch (pageId) {
+        case 'home':
+          background.style.background = 'linear-gradient(-45deg, #1e3a8a, #2563eb, #3b82f6, #60a5fa)';
+          break;
+        case 'about':
+          background.style.background = 'linear-gradient(-45deg, #065f46, #10b981, #34d399, #6ee7b7)';
+          break;
+        case 'portfolio':
+          background.style.background = 'linear-gradient(-45deg, #9f1239, #e11d48, #f43f5e, #f87171)';
+          break;
+      }
+
+      
+      background.style.animation = 'none';
+      void background.offsetWidth; 
+      background.style.animation = null;
+    }
+  </script>
+
+</body>
+</html>
